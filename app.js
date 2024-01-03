@@ -51,3 +51,15 @@ const calculateIncomeTaxAmount = createTaxCalculator(0.25);
 
 console.log(calculateVatAmount(100));
 console.log(calculateIncomeTaxAmount(200));
+
+//closure
+//every function is closure
+
+let userName = "durgesh";
+function greetUser() {
+  let name = userName;
+  console.log("Hi " + name);
+}
+
+userName = "joshi";
+greetUser();
