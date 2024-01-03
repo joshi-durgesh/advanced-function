@@ -63,3 +63,62 @@ function greetUser() {
 
 userName = "joshi";
 greetUser();
+
+//recursion function calling itself is know as recursion
+
+// function powerOf(x, n) {
+//   let result = 1;
+//   for (let i = 0; i < n; i++) {
+//     result *= x;
+//   }
+//   return result;
+// }
+
+function powerOf(x, n) {
+  if (n === 1) {
+    return x;
+  }
+  return x * powerOf(x, n - 1);
+}
+
+console.log(powerOf(2, 3)); // 2*2*2
+
+//recursion advance
+const myself = {
+  name: "Durgesh",
+  freinds: [
+    {
+      name: "Praveen",
+      freinds: [
+        {
+          name: "Aman",
+          freinds: [
+            {
+              name: "saras",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Ashish",
+    },
+  ],
+};
+
+function getFreindsNames(person) {
+  const collectedNames = [];
+
+  if (!person.freinds) {
+    return [];
+  }
+
+  for (const freind of person.freinds) {
+    collectedNames.push(freind.name);
+    collectedNames.push(...getFreindsNames(freind));
+  }
+
+  return collectedNames;
+}
+
+console.log(getFreindsNames(myself));
